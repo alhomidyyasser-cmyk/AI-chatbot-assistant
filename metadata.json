@@ -1,0 +1,6 @@
+{
+  "name": "AI Chatbot Assistant",
+  "description": "استوديو تفاعلي لتدريب ومحاكاة نموذج معالجة اللغات الطبيعية المتكامل مع شبكة عصبية والبدائل البصرية الغنية بالأنيميشن والرسم التفصيلي.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
