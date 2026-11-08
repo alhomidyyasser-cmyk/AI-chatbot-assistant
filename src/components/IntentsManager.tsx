@@ -189,7 +189,7 @@ export default function IntentsManager({ intents, setIntents }: IntentsManagerPr
               أضف
             </Button>
           </form>
-          {tagError && <span className="text-[10px] text-[var(--color-error)]">{tagError}</span>}
+          {tagError && <span className="text-[11px] text-[var(--color-error)]">{tagError}</span>}
         </div>
 
         {/* Patterns & Responses */}
@@ -207,7 +207,7 @@ export default function IntentsManager({ intents, setIntents }: IntentsManagerPr
                       key={i}
                       className="text-[11px] bg-[var(--color-surface-2)] text-[var(--color-text-secondary)] border border-[var(--color-border-subtle)] py-1 px-2.5 rounded-lg flex items-center gap-2 hover:border-[var(--color-accent)]/30 transition-colors"
                     >
-                      <span>"{pat}"</span>
+                      <span className="break-words">"{pat}"</span>
                       <button
                         type="button"
                         aria-label={`حذف النمط ${pat}`}
@@ -230,7 +230,7 @@ export default function IntentsManager({ intents, setIntents }: IntentsManagerPr
                     أضف
                   </Button>
                 </form>
-                {patternError && <span className="text-[10px] text-[var(--color-error)]">{patternError}</span>}
+                {patternError && <span className="text-[11px] text-[var(--color-error)]">{patternError}</span>}
               </div>
 
               {/* Responses */}
@@ -267,7 +267,7 @@ export default function IntentsManager({ intents, setIntents }: IntentsManagerPr
                     أضف
                   </Button>
                 </form>
-                {responseError && <span className="text-[10px] text-[var(--color-error)]">{responseError}</span>}
+                {responseError && <span className="text-[11px] text-[var(--color-error)]">{responseError}</span>}
               </div>
             </>
           ) : (

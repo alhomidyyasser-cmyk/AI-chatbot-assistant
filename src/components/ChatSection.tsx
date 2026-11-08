@@ -61,7 +61,7 @@ export default function ChatSection({
           </h2>
         </div>
         <Badge variant="accent" size="sm">
-          {isModelTrained ? "نشط" : "ي chờ التدريب"}
+          {isModelTrained ? "نشط" : "جاري التدريب"}
         </Badge>
       </div>
 
@@ -103,7 +103,7 @@ export default function ChatSection({
                   {isBot ? <Bot className="w-3.5 h-3.5" /> : <User className="w-3.5 h-3.5" />}
                 </div>
 
-                <div className="flex flex-col gap-1">
+                <div className="flex flex-col gap-1 min-w-0">
                   <div
                     className={`rounded-2xl px-3.5 py-2 text-xs leading-relaxed break-words ${
                       isBot
@@ -115,7 +115,7 @@ export default function ChatSection({
                   </div>
 
                   {isBot && msg.tag && (
-                    <div className="flex items-center gap-1.5 px-0.5 text-[9px] text-[var(--color-text-muted)]">
+                    <div className="flex items-center gap-1.5 px-0.5 text-[10px] text-[var(--color-text-muted)]">
                       <Sparkles className="w-3 h-3 text-[var(--color-accent)]" />
                       <Badge variant="default" size="sm">
                         {msg.tag}
@@ -166,7 +166,7 @@ export default function ChatSection({
               key={i}
               type="button"
               onClick={() => setInput(sample.text)}
-              className="text-[10px] bg-[var(--color-surface-3)] hover:bg-[var(--color-surface-4)] text-[var(--color-text-secondary)] border border-[var(--color-border-subtle)] px-2 py-1 rounded-lg transition-colors"
+              className="text-[11px] bg-[var(--color-surface-3)] hover:bg-[var(--color-surface-4)] text-[var(--color-text-secondary)] border border-[var(--color-border-subtle)] px-2 py-1 rounded-lg transition-colors"
             >
               {sample.label}
             </button>

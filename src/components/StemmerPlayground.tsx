@@ -78,7 +78,7 @@ export default function StemmerPlayground({ vocabulary, lastInputText }: Stemmer
             className="bg-[var(--color-surface-2)]/60 border border-[var(--color-border-subtle)] rounded-xl p-4 flex flex-col gap-3"
           >
             <div>
-              <div className={`text-[10px] uppercase tracking-wider font-semibold font-mono ${
+              <div className={`text-[11px] uppercase tracking-normal font-semibold font-sans ${
                 step.color === "accent" ? "text-[var(--color-accent)]" :
                 step.color === "warning" ? "text-[var(--color-warning)]" : "text-[var(--color-text-muted)]"
               }`}>
@@ -87,20 +87,20 @@ export default function StemmerPlayground({ vocabulary, lastInputText }: Stemmer
               <h4 className="text-xs font-semibold text-[var(--color-text-primary)] mt-0.5">
                 {step.label}
               </h4>
-              <p className="text-[10px] text-[var(--color-text-muted)] mt-0.5">{step.sub}</p>
+              <p className="text-[11px] text-[var(--color-text-muted)] mt-0.5">{step.sub}</p>
             </div>
 
             <div className="flex flex-wrap gap-1 mt-auto min-h-[40px]">
               {step.items !== null ? (
                 step.items.length === 0 ? (
-                  <span className="text-[10px] text-[var(--color-text-muted)] italic">
+                  <span className="text-[11px] text-[var(--color-text-muted)] italic">
                     {step.emptyMsg}
                   </span>
                 ) : (
                   step.items.map((item, i) => (
                     <span
                       key={`token-${i}`}
-                      className={`inline-flex items-center gap-1 rounded-full font-mono font-medium text-[10px] px-2 py-0.5 ${
+                      className={`inline-flex items-center gap-1.5 rounded-lg font-sans font-medium text-[12px] px-3 py-1 ${
                         step.color === "accent"
                           ? "bg-[var(--color-accent-glow)] text-[var(--color-accent)] border border-[var(--color-accent-border)]"
                           : step.color === "warning"
@@ -115,7 +115,7 @@ export default function StemmerPlayground({ vocabulary, lastInputText }: Stemmer
               ) : (
                 <div className="flex flex-col gap-1">
                   <span className="text-xs text-[var(--color-text-secondary)]">
-                    <span className="font-mono text-[var(--color-accent)] font-bold">
+                    <span className="font-sans text-[var(--color-accent)] font-bold">
                       {matchCount}
                     </span>{" "}
                     كلمة من {vocabulary.length}
@@ -133,7 +133,7 @@ export default function StemmerPlayground({ vocabulary, lastInputText }: Stemmer
           <span className="text-xs font-semibold text-[var(--color-text-secondary)]">
             متجه الإدخال (Bag of Words)
           </span>
-          <span className="inline-flex items-center gap-1 rounded-full font-mono font-medium text-[10px] px-2 py-0.5 bg-[var(--color-surface-3)] text-[var(--color-text-secondary)] border border-[var(--color-border-subtle)]">
+          <span className="inline-flex items-center gap-1 rounded-full font-sans font-medium text-[11px] px-2 py-0.5 bg-[var(--color-surface-3)] text-[var(--color-text-secondary)] border border-[var(--color-border-subtle)]">
             {vocabulary.length} خانة
           </span>
         </div>
@@ -143,7 +143,7 @@ export default function StemmerPlayground({ vocabulary, lastInputText }: Stemmer
             return (
               <div
                 key={i}
-                className={`text-[10px] px-2 py-1 rounded font-mono transition-all ${
+                className={`text-[12px] px-2.5 py-1.5 rounded-lg font-sans transition-all ${
                   active
                     ? "bg-[var(--color-accent)] text-[var(--color-surface-0)] font-bold"
                     : "bg-[var(--color-surface-3)] text-[var(--color-text-muted)] border border-[var(--color-border-subtle)]"

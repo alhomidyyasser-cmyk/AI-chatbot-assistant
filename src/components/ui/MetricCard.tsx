@@ -17,7 +17,7 @@ export default function MetricCard({ label, value, description, icon, accent = f
             {icon}
           </span>
         )}
-        <span className="text-[10px] text-[var(--color-text-muted)] uppercase tracking-wider font-semibold">
+        <span className="text-[11px] text-[var(--color-text-muted)] uppercase tracking-normal font-semibold">
           {label}
         </span>
       </div>
@@ -25,7 +25,7 @@ export default function MetricCard({ label, value, description, icon, accent = f
         {value}
       </span>
       {description && (
-        <p className="text-[10px] text-[var(--color-text-muted)] mt-0.5">
+        <p className="text-[11px] text-[var(--color-text-muted)] mt-0.5">
           {description}
         </p>
       )}

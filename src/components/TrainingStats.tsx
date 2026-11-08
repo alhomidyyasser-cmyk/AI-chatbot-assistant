@@ -121,7 +121,7 @@ export default function TrainingStats({
               <span className="text-xs font-semibold text-[var(--color-text-secondary)]">
                 {chart.label}
               </span>
-              <span className="text-[10px] font-mono" style={{ color: chart.color }}>
+              <span className="text-[11px] font-mono" style={{ color: chart.color }}>
                 الهدف: {chart.target}
               </span>
             </div>

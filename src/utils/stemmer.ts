@@ -7,7 +7,7 @@
 export function tokenize(text: string): string[] {
   return text
     .toLowerCase()
-    .replace(/[^\w\s-]/g, '') // strip punctuation
+    .replace(/[^\p{L}\p{N}_\s-]/gu, '') // strip punctuation while keeping Unicode letters
     .split(/\s+/)
     .filter(word => word.length > 0);
 }

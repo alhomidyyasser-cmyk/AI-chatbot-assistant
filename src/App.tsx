@@ -66,7 +66,7 @@ export default function App() {
             </h1>
           </div>
           <div className="flex items-center gap-2">
-            <span className="hidden md:flex items-center gap-1.5 bg-[var(--color-surface-2)] border border-[var(--color-border-subtle)] px-2.5 py-1 rounded-lg text-[10px] text-[var(--color-text-secondary)]">
+            <span className="hidden md:flex items-center gap-1.5 bg-[var(--color-surface-2)] border border-[var(--color-border-subtle)] px-2.5 py-1 rounded-lg text-[11px] text-[var(--color-text-secondary)]">
               <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-success)]" />
               يعمل محلياً
             </span>
@@ -78,7 +78,7 @@ export default function App() {
       {/* Main */}
       <main className="flex-grow p-4 lg:p-6 grid grid-cols-1 lg:grid-cols-12 gap-5 max-w-[1600px] mx-auto w-full">
         {/* Chat */}
-        <div className="lg:col-span-4 flex flex-col min-h-[500px]">
+        <div className="lg:col-span-4 flex flex-col min-h-[500px] min-w-0">
           <ChatSection
             onSendMessage={handleSendMessage}
             messages={chat.messages}
@@ -89,7 +89,7 @@ export default function App() {
         </div>
 
         {/* Panels */}
-        <div className="lg:col-span-8 flex flex-col gap-4">
+        <div className="lg:col-span-8 flex flex-col gap-4 min-w-0">
           {/* Tabs */}
           <Card className="p-1.5">
             <div role="tablist" aria-label="أقسام التطبيق" className="flex gap-1 overflow-x-auto">
@@ -182,7 +182,7 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-[var(--color-border-subtle)] py-3 px-6 text-center text-[10px] text-[var(--color-text-muted)] mt-auto">
+      <footer className="border-t border-[var(--color-border-subtle)] py-3 px-6 text-center text-[11px] text-[var(--color-text-muted)] mt-auto">
         AI Chatbot Assistant — جميع العمليات تتم محلياً في المتصفح
       </footer>
     </div>

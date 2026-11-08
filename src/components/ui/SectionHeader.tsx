@@ -17,7 +17,7 @@ export default function SectionHeader({ title, subtitle, icon, action }: Section
           </div>
         )}
         <div>
-          <h3 className="text-sm font-semibold tracking-wide text-[var(--color-text-primary)]">
+          <h3 className="text-sm font-semibold tracking-normal text-[var(--color-text-primary)]">
             {title}
           </h3>
           {subtitle && (

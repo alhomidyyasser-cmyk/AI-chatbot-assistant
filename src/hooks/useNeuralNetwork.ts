@@ -29,6 +29,7 @@ export function useNeuralNetwork() {
     let cancelled = false;
 
     const autoTrain = async () => {
+      setIsTraining(true);
       const data = preprocessDataset(intentsRef.current);
       const net = new NeuralNetwork(data.words.length, data.labels.length);
 
@@ -71,6 +72,7 @@ export function useNeuralNetwork() {
       setVocab(data.words);
       setClasses(data.labels);
       setIsModelTrained(true);
+      setIsTraining(false);
     };
 
     autoTrain();

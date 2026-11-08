@@ -28,9 +28,9 @@ export default function NetworkVis({
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
-  const width = 640;
-  const height = 420;
-  const hPadding = 40;
+  const width = 820;
+  const height = 500;
+  const hPadding = 100;
   const colWidth = (width - hPadding * 2) / 3;
   const col0 = hPadding;
   const col1 = hPadding + colWidth;
@@ -38,12 +38,12 @@ export default function NetworkVis({
   const col3 = hPadding + colWidth * 3;
 
   const inputNodes = useMemo(() => {
-    const active = vocabulary.filter((w) => activeStemmedWords.includes(w)).slice(0, 8);
+    const active = vocabulary.filter((w) => activeStemmedWords.includes(w)).slice(0, 6);
     const inactive = vocabulary
       .filter((w) => !activeStemmedWords.includes(w))
-      .slice(0, 8 - active.length);
-    const visible = [...active, ...inactive].slice(0, 8);
-    while (visible.length < 8) visible.push("...");
+      .slice(0, 6 - active.length);
+    const visible = [...active, ...inactive].slice(0, 6);
+    while (visible.length < 6) visible.push("...");
     return visible;
   }, [vocabulary, activeStemmedWords]);
 
@@ -52,7 +52,7 @@ export default function NetworkVis({
     return Array.from({ length: count }, (_, i) => ({ x, y: 30 + i * step }));
   }, []);
 
-  const layer1 = useMemo(() => getNodesInLayer(col0, 8), [col0, getNodesInLayer]);
+  const layer1 = useMemo(() => getNodesInLayer(col0, 6), [col0, getNodesInLayer]);
   const layer2 = useMemo(() => getNodesInLayer(col1, 8), [col1, getNodesInLayer]);
   const layer3 = useMemo(() => getNodesInLayer(col2, 8), [col2, getNodesInLayer]);
   const layer4 = useMemo(() => getNodesInLayer(col3, labels.length), [col3, labels.length, getNodesInLayer]);
@@ -99,7 +99,7 @@ export default function NetworkVis({
         }
       />
 
-      <div className="flex gap-4 text-[10px] text-[var(--color-text-muted)] font-mono mt-3 mb-2">
+      <div className="flex gap-4 text-[11px] text-[var(--color-text-muted)] font-sans mt-3 mb-2">
         <div className="flex items-center gap-1.5">
           <span className="w-2 h-2 rounded-full bg-[var(--color-accent)] opacity-60" />
           <span>مدخل نشط</span>
@@ -111,7 +111,7 @@ export default function NetworkVis({
       </div>
 
       <div className="relative w-full overflow-auto flex justify-center">
-        <svg viewBox={`0 0 ${width} ${height}`} className="w-full max-w-[640px] h-auto">
+        <svg viewBox={`0 0 ${width} ${height}`} className="w-full max-w-full h-auto" style={{ direction: "ltr" }}>
           <defs>
             <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
               <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.35" />
@@ -222,14 +222,14 @@ export default function NetworkVis({
                   strokeWidth="1.5"
                 />
                 <text
-                  x={coord.x - 10} y={coord.y + 3.5}
+                  x={coord.x - 55} y={coord.y + 3.5}
                   fill={active ? colors.labelActive : colors.labelInactive}
-                  fontSize="8"
+                  fontSize="9"
                   fontWeight={active ? "600" : "400"}
                   textAnchor="end"
-                  className="font-mono pointer-events-none select-none"
+                  className="font-sans pointer-events-none select-none"
                 >
-                  {word}
+                  {word.length > 10 ? `${word.slice(0, 9)}…` : word}
                 </text>
               </g>
             );
@@ -270,15 +270,15 @@ export default function NetworkVis({
                   strokeWidth="1.5"
                 />
                 <text
-                  x={coord.x + 10} y={coord.y + 3.5}
+                  x={coord.x + 32} y={coord.y + 3.5}
                   fill={isWinner ? colors.winnerLabel : prob > 0.1 ? colors.labelText : colors.labelMuted}
                   fontSize="9"
                   fontWeight={isWinner ? "600" : "400"}
                   textAnchor="start"
                   className="font-sans pointer-events-none select-none"
                 >
-                  {tag}{" "}
-                  <tspan fontSize="7" fill={colors.labelMuted}>
+                  {tag.length > 10 ? `${tag.slice(0, 9)}…` : tag}{" "}
+                  <tspan fontSize="8" fill={colors.labelMuted}>
                     ({Math.round(prob * 100)}%)
                   </tspan>
                 </text>
@@ -296,7 +296,7 @@ export default function NetworkVis({
             {predictedTag ?? "انتظار..."}
           </Badge>
         </div>
-        <span className="text-[10px] font-mono">
+        <span className="text-[11px] font-mono">
           {vocabulary.length} × 8 × 8 × {labels.length}
         </span>
       </div>
